@@ -4,15 +4,16 @@
   <style>
     .iframe-container {
       width: 100%; 
-      height: 80vh; 
       margin-top: 20px; 
-      display: block; /* Added to ensure block-level behavior */
+      display: block; 
     }
 
     .iframe-container iframe {
       width: 100%; 
-      height: 100%; 
       border: none; 
+    }
+    #myBtn { 
+      margin-bottom: 20px; 
     }
   </style>
 </head>
@@ -27,7 +28,7 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', (event) => { // Ensure DOM is loaded
+    document.addEventListener('DOMContentLoaded', (event) => {
       geotab.addin.myCustomPage1 = () => {
         return {
           initialize(api, state, callback) {
@@ -43,6 +44,11 @@
 
                   if (approvalToken) {
                     myIframe.src = "https://www.wikipedia.org"; 
+
+                    // Adjust iframe height after content loads
+                    myIframe.onload = function() {
+                      myIframe.style.height = myIframe.contentWindow.document.body.scrollHeight + 'px';
+                    };
                   } else {
                     console.error("Invalid approval token");
                   }
