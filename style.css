@@ -1,0 +1,11 @@
+.iframe-container {
+  width: 100%;  /* Make the container take full width */
+  height: 80vh; /* Make the container 80% of the viewport height */
+  margin-top: 20px; /* Add some space above the iframe (optional) */
+}
+
+.iframe-container iframe {
+  width: 100%; /* Make the iframe fill the container width */
+  height: 100%; /* Make the iframe fill the container height */
+  border: none; /* Remove the iframe border (optional) */
+}
